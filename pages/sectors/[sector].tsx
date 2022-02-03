@@ -266,6 +266,7 @@ export async function getStaticProps(props:any) {
         },
       },
     });
+    console.log(data)
     return {
       props: {
         companies: data.companies,
@@ -273,6 +274,7 @@ export async function getStaticProps(props:any) {
       },
     };
   } catch (error) {
+    console.log(error)
     return {
       props: {
         companies: [],
