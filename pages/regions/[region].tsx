@@ -158,7 +158,7 @@ export default function Example(props:any) {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                   {companies.map((company:any) => (
-                    <Link href={`/companies/${company.companyName}`} key={company.id}>
+                    <Link passHref href={`/companies/${company.companyName}`} key={company.id}>
                       <tr key={company.email}>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">

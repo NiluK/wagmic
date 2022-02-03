@@ -27,7 +27,7 @@ const Home: NextPage = (props:any) => {
               className={` grid col-span-3 grid-rows-3 rounded-lg shadow divide-y divide-gray-200`}
               // style={{ outlineColor: company.brandColor, outlineWidth: "2px", outlineStyle: "solid" }}
             >
-              <Link href={`/companies/${company.companyName}`}>
+              <Link passHref href={`/companies/${company.companyName}`}>
                 <div className="w-full flex row-span-3   items-center justify-between p-6 space-x-6">
                   <div className="items-center">
                     <div className="flex items-center space-x-3">

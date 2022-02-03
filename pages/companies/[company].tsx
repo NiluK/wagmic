@@ -194,7 +194,7 @@ export default function Example(props:any) {
                       <dt className="text-sm font-medium text-gray-500">
                         Region
                       </dt>
-                      <Link href={`/regions/${company?.region?.name}`}>
+                      <Link passHref href={`/regions/${company?.region?.name}`}>
                         <dd className="mt-1 text-sm text-gray-900">
                           {company?.region?.name}
                         </dd>
@@ -204,7 +204,7 @@ export default function Example(props:any) {
                       <dt className="text-sm font-medium text-gray-500">
                         Cohort
                       </dt>
-                      <Link href={`/cohorts/${company?.cohort?.name}`}>
+                      <Link passHref href={`/cohorts/${company?.cohort?.name}`}>
                         <dd className="mt-1 text-sm text-gray-900">
                           {company?.cohort?.name}
                         </dd>
@@ -214,7 +214,7 @@ export default function Example(props:any) {
                       <dt className="text-sm font-medium text-gray-500">
                         Sector
                       </dt>
-                      <Link href={`/sectors/${company?.sector?.[0]?.name}`}>
+                      <Link passHref href={`/sectors/${company?.sector?.[0]?.name}`}>
                         <dd className="mt-1 text-sm text-gray-900">
                           {company?.sector?.[0]?.name}
                         </dd>
