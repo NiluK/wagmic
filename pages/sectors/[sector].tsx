@@ -212,7 +212,6 @@ export function getStaticPaths() {
 }
 
 export async function getStaticProps(props:any) {
-  console.log(props);
   try {
     const { data } = await client.query({
       query: gql`

@@ -121,7 +121,6 @@ const comments = [
 
 
 export default function Example(props:any) {
-  console.log(props);
   const { companies = [], region } = props;
   return (
     <>
