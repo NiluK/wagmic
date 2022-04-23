@@ -13,9 +13,9 @@ const Home = () => {
                 <span className="mt-1 block text-5xl tracking-tight font-extrabold md:text-7xl">
                   <span className="block text-pink-600">
                     <span className="font-logo relative top-[-7px] pr-3">
-                      E
+                      F
                     </span>{" "}
-                    Enchanta
+                    Fomoable
                   </span>
                 </span>
               </h1>
