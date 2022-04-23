@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { Link } from "react-scroll";
 
 type Props = {
@@ -27,7 +26,7 @@ const Section = ({
         {leftText}
         <span className="block lg:my-4">{extraLeftText}</span>
       </h2>
-      <Image
+      <img
         className={`transform rounded-lg object-cover object-left-top mx-auto max-h-[400px] lg:max-h-[600px]`}
         src={imageUrl}
         alt="App screenshot"

@@ -1,8 +1,6 @@
-import { Link, animateScroll as scroll } from "react-scroll";
-import Image from "next/image";
-
 import NewsletterSubscribe from "../components/NewsLetterSubscribe";
 import Sections from "../components/sections";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const Home = () => {
   return (
@@ -48,7 +46,7 @@ const Home = () => {
             </div>
           </div>
           <div className="-mt-6  lg:aspect-w-2  lg:max-w-lg: ">
-            <Image
+            <img
               className="transform mt-10 max-h-[400px] lg:max-h-[600px] px-10 mx-auto"
               src="https://i.imgur.com/g9NpKnz.png"
               alt="App screenshot"
