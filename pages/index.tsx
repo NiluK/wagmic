@@ -1,12 +1,10 @@
-
+import { Link, animateScroll as scroll } from "react-scroll";
+import Image from "next/image";
 
 import NewsletterSubscribe from "../components/NewsLetterSubscribe";
-import Sections from "./sections";
-import { Link, animateScroll as scroll } from "react-scroll";
+import Sections from "../components/sections";
 
-//@ts-ignore
-
-export default function Home() {
+const Home = () => {
   return (
     <div className="relative bg-zinc-900 ">
       <div className="max-w-xl  md:max-w-3xl lg:max-w-4xl mx-auto py-16 ">
@@ -15,7 +13,12 @@ export default function Home() {
             <div className="text-center relative md:text-left ">
               <h1>
                 <span className="mt-1 block text-5xl tracking-tight font-extrabold md:text-7xl">
-                  <span className="block text-pink-600"><span className="font-logo relative top-[-7px] pr-3">E</span> Enchanta</span>
+                  <span className="block text-pink-600">
+                    <span className="font-logo relative top-[-7px] pr-3">
+                      E
+                    </span>{" "}
+                    Enchanta
+                  </span>
                 </span>
               </h1>
               <h1>
@@ -45,7 +48,7 @@ export default function Home() {
             </div>
           </div>
           <div className="-mt-6  lg:aspect-w-2  lg:max-w-lg: ">
-            <img
+            <Image
               className="transform mt-10 max-h-[400px] lg:max-h-[600px] px-10 mx-auto"
               src="https://i.imgur.com/g9NpKnz.png"
               alt="App screenshot"
@@ -67,7 +70,6 @@ export default function Home() {
         imageUrl="https://i.imgur.com/LhKmWeq.png"
         id="contact"
         maxWidth={"650px"}
-
       />
       <Sections
         leftText="Discover what's trending."
@@ -95,7 +97,9 @@ export default function Home() {
         id="contact"
       />
       {/* CTA section */}
-      <NewsletterSubscribe />  
+      <NewsletterSubscribe />
     </div>
   );
-}
+};
+
+export default Home;

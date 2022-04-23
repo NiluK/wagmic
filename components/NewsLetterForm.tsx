@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { decode } from "html-entities";
 
+//@ts-ignore
+
 const NewsletterForm = ({ status, message, onValidated }) => {
-  const [error, setError] = useState(null);
-  const [email, setEmail] = useState(null);
+  const [error, setError] = useState<string | null>(null);
+  const [email, setEmail] = useState<string | null>(null);
 
   /**
    * Handle form submit.
@@ -12,8 +14,6 @@ const NewsletterForm = ({ status, message, onValidated }) => {
    */
   const handleFormSubmit = () => {
     setError(null);
-
-    console.log("email", email);
 
     if (!email) {
       setError("Please enter a valid email address");
@@ -31,7 +31,7 @@ const NewsletterForm = ({ status, message, onValidated }) => {
    *
    * @param event
    */
-  const handleInputKeyEvent = (event) => {
+  const handleInputKeyEvent = (event: React.KeyboardEvent<HTMLInputElement>) => {
     setError(null);
     // Number 13 is the "Enter" key on the keyboard
     if (event.keyCode === 13) {
@@ -48,7 +48,7 @@ const NewsletterForm = ({ status, message, onValidated }) => {
    * @param {String} message
    * @return {null|*}
    */
-  const getMessage = (message) => {
+  const getMessage = (message: any) => {
     if (!message) {
       return null;
     }
@@ -102,6 +102,7 @@ const NewsletterForm = ({ status, message, onValidated }) => {
                   <div
                     className="text-3xl text-white"
                     dangerouslySetInnerHTML={{
+                      //@ts-ignore
                       __html: error || getMessage(message),
                     }}
                   />
