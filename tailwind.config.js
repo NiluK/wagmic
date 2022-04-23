@@ -5,7 +5,18 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        montserrat: ["Montserrat", "sans-serif"],
+        logo: ["Marck Script", "cursive"],
+      },
+      colors: {
+        'primary': '#CC016D',
+      },
+      fill: {
+        'primary': '#CC016D',
+      },
+    },
   },
   plugins: [],
 }

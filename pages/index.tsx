@@ -1,154 +1,101 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
-import { MailIcon, PhoneIcon, SearchIcon } from "@heroicons/react/solid";
 
-import { gql } from "@apollo/client";
-import client from "../apollo-client";
-import Navigation from "../components/Navigation";
 
-const Home: NextPage = (props:any) => {
-  // @ts-ignore
-  const { companies } = props;
+import NewsletterSubscribe from "../components/NewsLetterSubscribe";
+import Sections from "./sections";
+import { Link, animateScroll as scroll } from "react-scroll";
 
+//@ts-ignore
+
+export default function Home() {
   return (
-    <>
-      <Navigation />
-      <div>
-        {/* Hero card */}
-        <div className="mt-3 relative">
-          <div className="w-full mx-auto sm:px-6 lg:px-8">
-            <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
-              <div className="absolute inset-0">
-                <img
-                  className="h-full w-full object-cover"
-                  src="https://stockhead.com.au/wp-content/uploads/2019/11/antler-1.jpg"
-                />
-                <div className="absolute inset-0 bg-[#ED4747] mix-blend-multiply" />
-              </div>
-              <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
-                <h1 className="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+    <div className="relative bg-zinc-900 ">
+      <div className="max-w-xl  md:max-w-3xl lg:max-w-4xl mx-auto py-16 ">
+        <div className="bg-zinc-900 rounded-lg -xl sm:grid sm:grid-cols-2 lg:gap-1">
+          <div className="pt-10 pb-12 px-5 md:py-20 col-span-1 ">
+            <div className="text-center relative md:text-left ">
+              <h1>
+                <span className="mt-1 block text-5xl tracking-tight font-extrabold md:text-7xl">
+                  <span className="block text-pink-600"><span className="font-logo relative top-[-7px] pr-3">E</span> Enchanta</span>
+                </span>
+              </h1>
+              <h1>
+                <span className="mt-1 block w-full text-2xl tracking-tight font-extrabold lg:text-4xl xl:text-4xl">
                   <span className="block text-white">
-                    The most comprehensive <br /> Antler database
+                    Discover NFTs you love.
                   </span>
-                </h1>
-                {/* <div className="mt-1 mx-auto max-w-xl relative rounded-md shadow-sm">
-                  <div
-                    className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-                    aria-hidden="true"
+                </span>
+              </h1>
+
+              <div className="mt-8 mx-auto text-center md:text-left  lg:mx-0">
+                <form action="#" method="POST" className="mt-3 mx-auto lg:flex">
+                  <label htmlFor="email" className="sr-only">
+                    Email
+                  </label>
+
+                  <Link
+                    to="#contact"
+                    type="submit"
+                    smooth={true}
+                    className="block mx-auto md:mx-0 px-5 rounded-lg border border-transparent py-3 bg-pink-600 text-base font-medium text-white  hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 lg:px-10 cursor-pointer"
                   >
-                    <SearchIcon
-                      className="mr-3 h-5 w-5 text-gray-400"
-                      aria-hidden="true"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <input
-                    type="text"
-                    name="search"
-                    id="search"
-                    className="focus:ring-red-500 focus:border-red-500 block w-full pl-12 sm:text-xl border-gray-300 rounded-md p-4 mt-10"
-                    placeholder="Search"
-                  />
-                </div> */}
+                    Get early access
+                  </Link>
+                </form>
               </div>
             </div>
           </div>
+          <div className="-mt-6  lg:aspect-w-2  lg:max-w-lg: ">
+            <img
+              className="transform mt-10 max-h-[400px] lg:max-h-[600px] px-10 mx-auto"
+              src="https://i.imgur.com/g9NpKnz.png"
+              alt="App screenshot"
+            />
+          </div>
         </div>
       </div>
-      <ul className="container max-w-7xl mt-10 mx-auto px-2 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 ">
-        {companies.map((company: any) => (
-          <div
-            key={company.id}
-            className="grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-3 "
-          >
-            <li
-              key={company.email}
-              className={` grid col-span-3 grid-rows-3 rounded-lg shadow divide-y divide-gray-200`}
-              // style={{ outlineColor: company.brandColor, outlineWidth: "2px", outlineStyle: "solid" }}
-            >
-              <Link passHref href={`/companies/${company.companyName}`}>
-                <div className="w-full flex row-span-3   items-center justify-between p-6 space-x-6">
-                  <div className="items-center">
-                    <div className="flex items-center space-x-3">
-                      <h3 className="text-gray-900 text-sm font-medium truncate overflow-ellipsis max-w-[100px] sm:mx-w-full">
-                        {company.companyName}
-                      </h3>
-                      <span className="inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">
-                        {company.cohort?.name}
-                      </span>
-                    </div>
-                    <p className="mt-1 text-gray-500 text-sm truncate">
-                      {company.title}
-                    </p>
-                  </div>
-                  <img
-                    className="w-auto mx-auto max-w-[120px] max-h-[60px] flex-shrink-0"
-                    src={company.logo}
-                    alt=""
-                  />
-                </div>
-                {/* <div>
-                <div className="-mt-px flex divide-x divide-gray-200">
-                  <div className="w-0 flex-1 flex">
-                    <a
-                      href={`mailto:${company.email}`}
-                      className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500"
-                    >
-                      <MailIcon
-                        className="w-5 h-5 text-gray-400"
-                        aria-hidden="true"
-                      />
-                      <span className="ml-3">Email</span>
-                    </a>
-                  </div>
-                  <div className="-ml-px w-0 flex-1 flex">
-                    <a
-                      href={`tel:${company.telephone}`}
-                      className="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500"
-                    >
-                      <PhoneIcon
-                        className="w-5 h-5 text-gray-400"
-                        aria-hidden="true"
-                      />
-                      <span className="ml-3">Call</span>
-                    </a>
-                  </div>
-                </div>
-              </div> */}
-              </Link>
-            </li>
-          </div>
-        ))}
-      </ul>
-    </>
+      <Sections
+        leftText="Swipe what you like."
+        rightText="Add to wishlist."
+        imageUrl="https://i.imgur.com/RJCoPqp.png"
+        moreHidden={true}
+        maxWidth={"650px"}
+        id="contact"
+      />
+      <Sections
+        leftText="Set your budget."
+        rightText="Get alerts on price moves."
+        imageUrl="https://i.imgur.com/LhKmWeq.png"
+        id="contact"
+        maxWidth={"650px"}
+
+      />
+      <Sections
+        leftText="Discover what's trending."
+        rightText="Build your dream collections."
+        imageUrl="https://i.imgur.com/7viRuUR.png"
+        id="contact"
+      />
+      <Sections
+        leftText="Discover & follow cool new NFT creators."
+        rightText="See what your connections buy & sell."
+        imageUrl="https://i.imgur.com/jrI6vVr.png"
+        id="contact"
+      />
+      <Sections
+        leftText="Love a collection?"
+        extraLeftText="Make a video pitching it to others."
+        rightText="Be rewarded for writing helpful reviews."
+        imageUrl="https://i.imgur.com/4OU7fep.png"
+        id="contact"
+      />
+      <Sections
+        leftText="Get access to exclusive membership benefits."
+        rightText="Be rewarded for being you."
+        imageUrl="https://i.imgur.com/1opR3rI.png"
+        id="contact"
+      />
+      {/* CTA section */}
+      <NewsletterSubscribe />  
+    </div>
   );
-};
-
-export async function getStaticProps() {
-  const { data } = await client.query({
-    query: gql`
-      query companies {
-        companies(take:10) {
-          id
-          companyName
-          logo
-          cohort {
-            name
-          }
-          brandColor
-        }
-      }
-    `,
-  });
-
-  return {
-    props: {
-      companies: data.companies,
-    },
-  };
 }
-
-export default Home;
