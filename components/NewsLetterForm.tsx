@@ -92,7 +92,7 @@ const NewsletterForm = ({ status, message, onValidated }) => {
                 <button
                   type="submit"
                   onClick={handleFormSubmit}
-                  className="block w-full rounded-lg: border border-transparent px-5 py-3 bg-pink-600 text-base font-medium text-white shadow hover:bg-pink-700 focus:outline-none lg:px-10"
+                  className="block w-full rounded-lg: border border-transparent px-5 py-3 bg-primary text-base font-medium text-white shadow hover:bg-pink-700 focus:outline-none lg:px-10"
                 >
                   {status === "sending" ? "Signing Up..." : "Get early access"}
                 </button>

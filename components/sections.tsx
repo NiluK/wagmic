@@ -36,7 +36,7 @@ const Section = ({
           {rightText}
           {!moreHidden && (
             <Link to={`#${id}`} smooth={true}>
-              <a className="block text-lg items-center font-bold my-3 py-2 border border-transparent rounded-full shadow-sm text-pink-600 hover:underline hover:text-pink-700 cursor-pointer">
+              <a className="block text-lg items-center font-bold my-3 py-2 border border-transparent rounded-full shadow-sm text-primary hover:underline hover:text-pink-700 cursor-pointer">
                 More
               </a>
             </Link>

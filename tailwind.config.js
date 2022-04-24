@@ -11,10 +11,10 @@ module.exports = {
         logo: ["Marck Script", "cursive"],
       },
       colors: {
-        'primary': '#CC016D',
+        'primary': '#da0064',
       },
       fill: {
-        'primary': '#CC016D',
+        'primary': '#da0064',
       },
     },
   },

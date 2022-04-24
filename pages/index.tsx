@@ -11,10 +11,7 @@ const Home = () => {
             <div className="text-center relative md:text-left ">
               <h1>
                 <span className="mt-1 block text-5xl tracking-tight font-extrabold md:text-7xl">
-                  <span className="block text-pink-600">
-                    <span className="font-logo relative top-[-7px] pr-3">
-                      W
-                    </span>{" "}
+                  <span className="block text-primary">
                     Wagmic
                   </span>
                 </span>
@@ -37,7 +34,7 @@ const Home = () => {
                     to="#contact"
                     type="submit"
                     smooth={true}
-                    className="block mx-auto md:mx-0 px-5 rounded-lg border border-transparent py-3 bg-pink-600 text-base font-medium text-white  hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 lg:px-10 cursor-pointer"
+                    className="block mx-auto md:mx-0 px-5 rounded-lg border border-transparent py-3 bg-primary text-base font-medium text-white  hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-500 lg:px-10 cursor-pointer"
                   >
                     Get early access
                   </Link>
@@ -93,6 +90,7 @@ const Home = () => {
         rightText="Be rewarded for being you."
         imageUrl="https://i.imgur.com/1opR3rI.png"
         id="contact"
+        moreHidden={true}
       />
       {/* CTA section */}
       <NewsletterSubscribe />
